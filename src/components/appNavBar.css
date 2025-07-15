@@ -1,0 +1,67 @@
+/* Logo Image */
+.logo-img {
+  height: clamp(40px, 8vw, 80px);
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-logo {
+  gap: 8px;
+}
+
+
+
+/* Custom Navbar Background */
+.custom-navbar {
+  background-color: #33333d !important;
+  border-bottom: 1px solid #efe7da;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+
+/* General Nav Link Styling (more specific selector) */
+.navbar .nav-link.nav-link-custom {
+  font-weight: 400;
+  font-size: 0.95rem; /* slightly smaller */
+  padding: 4px 0;
+  margin: 0 8px;
+  color: #e0e0e0 !important;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+
+/* Hover effect */
+.navbar .nav-link.nav-link-custom:hover {
+  
+  color: #ffffff  !important;
+  font-weight: 600;
+}
+
+/* Active NavLink Styling */
+.navbar .nav-link.nav-link-custom.active {
+  color: #fbfbfb  !important;
+  font-weight: 600;
+  font-size: 1.3rem;
+  border-bottom: 1.9px solid #163025 ;
+  border-radius: 2px;
+}
+
+/* Smooth underline hover */
+.navbar .nav-link.nav-link-custom::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 2px;
+  background-color: #d5213e ;
+  transition: width 0.3s ease;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.navbar .nav-link.nav-link-custom:hover::after,
+.navbar .nav-link.nav-link-custom.active::after {
+  width: 100%;
+}
