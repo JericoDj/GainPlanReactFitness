@@ -53,14 +53,14 @@
   background-color: #424e5c!important;
   color: #ffffff !important;
   
-  border-color: #901a15;
+  border-color: #901a15!important;
 }
 /* Light gray button */
 .btn-light-brand:hover{
   background-color: #6a7e96 !important;
   color: #ffffff !important;
   font-weight: 500 !important;
-  border-color: #50546b;
+  border-color: #50546b !important;
 }
 
 /* Green success button */
@@ -68,6 +68,7 @@
   background-color: #6b0d06 !important;
   color: white !important;
   border-color: #901a15 !important;
+  
 }
 
 .btn-success-brand:hover {
