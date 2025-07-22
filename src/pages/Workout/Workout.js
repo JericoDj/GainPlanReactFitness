@@ -217,7 +217,7 @@ export default function Workout() {
           ))
         ) : (
           <Col>
-            <Alert variant="info">No workouts found.</Alert>
+            <Alert className= "info"variant="info">No workouts found.</Alert>
           </Col>
         )}
       </Row>

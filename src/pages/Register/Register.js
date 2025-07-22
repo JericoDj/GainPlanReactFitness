@@ -7,13 +7,11 @@ import {
   Button,
   Alert,
   Card,
-  CardHeader,
-  CardTitle,
-  CardBody,
   Spinner,
 } from "react-bootstrap";
 import { UserContext } from "../../context/UserContext";
 import { useNavigate, Link } from "react-router-dom";
+import "./Register.css"; // Link to custom CSS file
 
 export default function Register() {
   const { register } = useContext(UserContext);
@@ -48,8 +46,7 @@ export default function Register() {
         navigate("/login");
       }, 1500);
     } catch (err) {
-
-        console.log(err);
+      console.log(err);
       setError(err.message || "Registration failed.");
     } finally {
       setIsLoading(false);
@@ -57,17 +54,15 @@ export default function Register() {
   };
 
   return (
-    <Container
-      className="d-flex justify-content-center align-items-center"
-      style={{ minHeight: "100vh" }}
-    >
+    <Container className="register-container d-flex justify-content-center align-items-center">
       <Row className="w-100 justify-content-center">
         <Col md={6} lg={4}>
-          <Card>
-            <CardHeader>
-              <CardTitle className="mb-0">Register</CardTitle>
-            </CardHeader>
-            <CardBody>
+          <Card className="register-card shadow-sm">
+            <Card.Header className="bg-light text-center border-bottom-0">
+              <h4 className="mb-0 fw-bold text-dark">Create Account</h4>
+              <p className="text-muted small mb-0">Register to continue</p>
+            </Card.Header>
+            <Card.Body>
               {error && <Alert variant="danger">{error}</Alert>}
               {success && <Alert variant="success">{success}</Alert>}
 
@@ -79,6 +74,7 @@ export default function Register() {
                     placeholder="Enter first name"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
+                    className="form-control-brand"
                     required
                   />
                 </Form.Group>
@@ -90,6 +86,7 @@ export default function Register() {
                     placeholder="Enter last name"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
+                    className="form-control-brand"
                     required
                   />
                 </Form.Group>
@@ -101,6 +98,7 @@ export default function Register() {
                     placeholder="09xxxxxxxxx"
                     value={mobileNo}
                     onChange={(e) => setMobileNo(e.target.value)}
+                    className="form-control-brand"
                     required
                   />
                 </Form.Group>
@@ -112,6 +110,7 @@ export default function Register() {
                     placeholder="Enter email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    className="form-control-brand"
                     required
                   />
                 </Form.Group>
@@ -123,28 +122,24 @@ export default function Register() {
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    className="form-control-brand"
                     required
                   />
                 </Form.Group>
 
                 <Button
-                  variant="primary"
                   type="submit"
-                  className="w-100"
+                  className="btn-brand w-100"
                   disabled={isLoading}
                 >
-                  {isLoading ? (
-                    <Spinner animation="border" size="sm" />
-                  ) : (
-                    "Register"
-                  )}
+                  {isLoading ? <Spinner animation="border" size="sm" /> : "Register"}
                 </Button>
               </Form>
 
               <div className="d-flex justify-content-end mt-3">
-                <Link to="/login">Back to Login</Link>
+                <Link to="/login" className="text-link-brand">Back to Login</Link>
               </div>
-            </CardBody>
+            </Card.Body>
           </Card>
         </Col>
       </Row>

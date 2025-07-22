@@ -1,17 +1,17 @@
-/* Login Container */
-.login-container {
+/* Register Container */
+.register-container {
   min-height: 100vh !important;
   background-color: #f8f9fa;
   padding: 2rem;
 }
 
-/* Login Card */
-.login-card {
-  border: none;
+/* Card styling */
+.register-card {
   border-radius: 12px;
+  border: none;
 }
 
-/* Input Fields */
+/* Input Field */
 .form-control-brand {
   border-radius: 6px !important;
   border: 1px solid #dee2e6 !important;
@@ -19,7 +19,7 @@
   padding: 0.6rem 0.75rem;
 }
 
-/* Brand Button */
+/* Brand Primary Button */
 .btn-brand {
   background-color: #f8294b !important;
   border-color: #f8294b !important;
@@ -33,7 +33,7 @@
   border-color: #d91f3e !important;
 }
 
-/* Brand Link Text */
+/* Link Styling */
 .text-link-brand {
   color: #f8294b !important;
   font-weight: 500;

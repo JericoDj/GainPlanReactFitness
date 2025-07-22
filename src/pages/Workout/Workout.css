@@ -32,6 +32,14 @@
   color: #ffffff !important;
 }
 
+.info{
+    color: #ffffff !important;
+    background-color: #424e5c !important;
+    font-weight: 500 !important;
+    font-size: 1.2rem !important;
+    border-color: #424e5c;
+}
+
 .btn-secondary-brand:hover {
    background-color: #6a7e96 !important;
   color: #ffffff !important;
