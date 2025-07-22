@@ -1,0 +1,37 @@
+.customer-feedback-section {
+  background: #e3e3e3;
+  border-top: 2px solid #e0e0e0;
+}
+
+/* Apply no text-shadow globally inside the section */
+.customer-feedback-section *,
+.customer-feedback-section *::before,
+.customer-feedback-section *::after {
+  text-shadow: none !important;
+  box-shadow: none !important; /* just in case */
+}
+
+.customer-feedback-section h2 {
+  font-size: 2.5rem;
+  color: #c63232;
+}
+
+.customer-feedback-section p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+
+.feedback-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: none;
+  box-shadow: none;
+  padding: 20px;
+}
+
+.feedback-text {
+  font-style: italic;
+  color: #333;
+}

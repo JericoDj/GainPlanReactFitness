@@ -1,0 +1,77 @@
+/* Responsive container height */
+.workout-container {
+  height: 80vh !important;
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+}
+
+@media (max-width: 768px) {
+  .workout-container {
+    height: 100vh !important;
+  }
+}
+
+/* Primary red button */
+.btn-brand {
+  background-color: #b52039 !important;
+  border-color: #ce2440 !important;
+  color: white !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+}
+
+.btn-brand:hover {
+  background-color: #841e2f !important;
+  border-color: #d91f3e !important;
+}
+
+/* Neutral gray button */
+.btn-secondary-brand {
+  background-color: #424e5c !important;
+  border-color: #901a15 !important;
+  color: #ffffff !important;
+}
+
+.btn-secondary-brand:hover {
+   background-color: #6a7e96 !important;
+  color: #ffffff !important;
+  font-weight: 500 !important;
+  border-color: #50546b;
+}
+
+
+/* Light gray button */
+.btn-light-brand {
+  background-color: #424e5c!important;
+  color: #ffffff !important;
+  
+  border-color: #901a15;
+}
+/* Light gray button */
+.btn-light-brand:hover{
+  background-color: #6a7e96 !important;
+  color: #ffffff !important;
+  font-weight: 500 !important;
+  border-color: #50546b;
+}
+
+/* Green success button */
+.btn-success-brand {
+  background-color: #6b0d06 !important;
+  color: white !important;
+  border-color: #901a15 !important;
+}
+
+.btn-success-brand:hover {
+  background-color: #9c1919 !important;
+  
+}
+
+/* Custom badge */
+.custom-badge {
+  background-color: #f8294b !important;
+  color: white !important;
+  padding: 0.35em 0.65em !important;
+  border-radius: 5px !important;
+  font-size: 0.8rem !important;
+}

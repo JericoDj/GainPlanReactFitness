@@ -1,3 +1,5 @@
+// FitnessInformation.jsx
+import React from "react";
 import {
   Row,
   Col,
@@ -7,23 +9,31 @@ import {
   CardSubtitle,
   CardText,
 } from "react-bootstrap";
-
+import "./FitnessInformation.css";
 
 export default function FitnessInformation() {
   return (
-    <Row>
-      <Col xs={12}>
-        <Card>
-          <CardBody>
-            <CardTitle>Card Title</CardTitle>
-            <CardSubtitle>Card Subtitle</CardSubtitle>
-            <CardText>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </CardText>
-          </CardBody>
-        </Card>
-      </Col>
-    </Row>
+    <section className="fitness-info-section">
+      <Row className="justify-content-center">
+        <Col xs={12} md={10} lg={8}>
+          <Card className="fitness-card">
+            <CardBody>
+              <CardTitle className="fs-2 fw-bold text-primary-custom">
+                Why Fitness Matters
+              </CardTitle>
+              <CardSubtitle className="mb-3 text-muted fw-semibold">
+                Fuel Your Mind and Body
+              </CardSubtitle>
+              <CardText className="text-secondary">
+                Regular exercise and proper nutrition are essential for building
+                strength, improving endurance, and boosting mental clarity.
+                Start your journey with <strong>Gain Plan</strong> and transform your
+                lifestyle today.
+              </CardText>
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+    </section>
   );
 }

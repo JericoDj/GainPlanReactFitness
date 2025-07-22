@@ -6,16 +6,17 @@ import {
   Card,
   Spinner,
   Alert,
-  Badge,
   Button,
   Modal,
   Form,
 } from "react-bootstrap";
 import { WorkoutContext } from "../../context/WorkoutContext";
 import { UserContext } from "../../context/UserContext";
+import "./Workout.css";
 
 export default function Workout() {
   const { workout, fetchWorkout } = useContext(WorkoutContext);
+  const { user } = useContext(UserContext);
 
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [selectedWorkoutId, setSelectedWorkoutId] = useState(null);
@@ -23,7 +24,6 @@ export default function Workout() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [newWorkout, setNewWorkout] = useState({ name: "", duration: "" });
   const [adding, setAdding] = useState(false);
-  const { user } = useContext(UserContext); // access userId from context
   const [showEditModal, setShowEditModal] = useState(false);
   const [editingWorkout, setEditingWorkout] = useState(null);
   const [updating, setUpdating] = useState(false);
@@ -60,7 +60,6 @@ export default function Workout() {
           }),
         }
       );
-
       const data = await response.json();
       if (!response.ok) throw new Error(data.message || "Update failed");
 
@@ -84,15 +83,9 @@ export default function Workout() {
           },
         }
       );
-
-      const text = await response.text(); // Always safe to inspect raw text first
-      console.log("Delete response status:", response.status);
-      console.log("Delete response body:", text);
-
       if (!response.ok) {
         throw new Error(`Failed to delete: ${response.status}`);
       }
-
       setShowDeleteModal(false);
       fetchWorkout();
     } catch (err) {
@@ -141,9 +134,7 @@ export default function Workout() {
           }),
         }
       );
-
       const result = await response.json();
-
       if (!response.ok) {
         console.error("Create failed:", result);
         return;
@@ -160,13 +151,14 @@ export default function Workout() {
   };
 
   return (
-    <Container className="py-4">
+    <Container className="workout-container">
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h3>My Workouts</h3>
-        <Button variant="primary" onClick={() => setShowAddModal(true)}>
+        <Button className="btn-brand" onClick={() => setShowAddModal(true)}>
           + Add Workout
         </Button>
       </div>
+
       <Row>
         {Array.isArray(workout) && workout.length > 0 ? (
           workout.map((item) => (
@@ -178,11 +170,15 @@ export default function Workout() {
                     <strong>Duration:</strong> {item.duration}
                     <br />
                     <strong>Status:</strong>{" "}
-                    <Badge
-                      bg={item.status === "completed" ? "success" : "warning"}
+                    <span
+                      className={
+                        item.status === "completed"
+                          ? "badge custom-badge"
+                          : "badge bg-warning text-dark"
+                      }
                     >
                       {item.status}
-                    </Badge>
+                    </span>
                     <br />
                     <strong>Date:</strong>{" "}
                     {new Date(item.dateAdded).toLocaleDateString()}
@@ -190,9 +186,7 @@ export default function Workout() {
 
                   {item.status === "pending" && (
                     <Button
-                      variant="success"
-                      size="sm"
-                      className="me-2"
+                      className="btn-success-brand btn-sm me-2"
                       onClick={() =>
                         handleMarkComplete(item._id, item.name, item.duration)
                       }
@@ -205,17 +199,14 @@ export default function Workout() {
                   )}
 
                   <Button
-                    variant="danger"
-                    size="sm"
+                    className="btn-secondary-brand btn-sm me-2"
                     onClick={() => handleDeleteClick(item._id)}
                   >
                     Delete
                   </Button>
 
                   <Button
-                    variant="warning"
-                    size="sm"
-                    className="ms-2"
+                    className="btn-light-brand btn-sm"
                     onClick={() => handleEditClick(item)}
                   >
                     Edit
@@ -231,7 +222,7 @@ export default function Workout() {
         )}
       </Row>
 
-      {/* Delete Confirmation Modal */}
+      {/* Modals */}
       <Modal
         show={showDeleteModal}
         onHide={() => setShowDeleteModal(false)}
@@ -242,16 +233,17 @@ export default function Workout() {
         </Modal.Header>
         <Modal.Body>Are you sure you want to delete this workout?</Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
+          <Button
+            className="btn-light-brand"
+            onClick={() => setShowDeleteModal(false)}
+          >
             Cancel
           </Button>
-          <Button variant="danger" onClick={handleDeleteConfirm}>
+          <Button className="btn-secondary-brand" onClick={handleDeleteConfirm}>
             Delete
           </Button>
         </Modal.Footer>
       </Modal>
-
-      {/* Delete Workout Modal */}
 
       <Modal
         show={showEditModal}
@@ -309,11 +301,14 @@ export default function Workout() {
           )}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowEditModal(false)}>
+          <Button
+            className="btn-light-brand"
+            onClick={() => setShowEditModal(false)}
+          >
             Cancel
           </Button>
           <Button
-            variant="primary"
+            className="btn-brand"
             onClick={handleUpdateWorkout}
             disabled={updating}
           >
@@ -322,7 +317,6 @@ export default function Workout() {
         </Modal.Footer>
       </Modal>
 
-      {/* Add Workout Modal */}
       <Modal show={showAddModal} onHide={() => setShowAddModal(false)} centered>
         <Modal.Header closeButton>
           <Modal.Title>Add New Workout</Modal.Title>
@@ -354,11 +348,14 @@ export default function Workout() {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowAddModal(false)}>
+          <Button
+            className="btn-light-brand"
+            onClick={() => setShowAddModal(false)}
+          >
             Cancel
           </Button>
           <Button
-            variant="primary"
+            className="btn-brand"
             onClick={handleAddWorkout}
             disabled={adding}
           >

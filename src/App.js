@@ -9,6 +9,7 @@ import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import Workout from "./pages/Workout/Workout";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
+import Footer from './components/Footer/Footer.js'
 
 
 
@@ -40,15 +41,16 @@ export default function App() {
   return (
     <UserProvider>
       <WorkoutProvider>
-       <div className="app-background d-flex flex-column min-vh-100">
+        <div className="app-background d-flex flex-column min-vh-100">
           <Router>
             <AppNavBar />
-            <main className="flex-grow-1 py-4">
+            <main>
               {/* <Container> */}
-                <AppRoutes />
+              <AppRoutes />
               {/* </Container> */}
             </main>
             {/* <Footer />  */}
+            <Footer />
           </Router>
         </div>
       </WorkoutProvider>

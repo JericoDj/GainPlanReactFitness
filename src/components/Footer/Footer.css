@@ -1,0 +1,36 @@
+.footer-section {
+  background-color: #383844;
+  color: #ddd;
+  font-size: 0.95rem;
+}
+
+.footer-text {
+  color: #ccc;
+  margin-bottom: 0.5rem;
+  text-shadow: none;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.4rem;
+}
+
+.footer-links a {
+  color: #f8294b;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+.footer-divider {
+  border-color: rgba(255, 255, 255, 0.2);
+  margin: 1.5rem 0;
+}
